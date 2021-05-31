@@ -72,4 +72,9 @@ public class Restaurant {
         return name;
     }
 
+    public int calculateOrderValue(List<Item> orderList){
+        int total_cost = 0;
+        return total_cost;
+    }
+
 }
