@@ -82,6 +82,13 @@ class RestaurantTest {
         assertThrows(itemNotFoundException.class,
                 ()->restaurant.removeFromMenu("French fries"));
     }
+
+    @Test
+    public void getName_should_return_name_of_restaurant_when_called(){
+        String restaurantName = restaurant.getName();
+        assertEquals("Amelie's cafe", restaurantName);
+    }
+
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ORDER <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
@@ -101,7 +108,7 @@ class RestaurantTest {
         orderedItems.add(restaurant.getMenu().get(1));
         Restaurant spiedRestaurant =  Mockito.spy(restaurant);
         assertEquals("java.lang.Integer", spiedRestaurant.calculateOrderValue(orderedItems).getClass().getName());
-
+        assertEquals(119 + 269, spiedRestaurant.calculateOrderValue(orderedItems));
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ORDER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
